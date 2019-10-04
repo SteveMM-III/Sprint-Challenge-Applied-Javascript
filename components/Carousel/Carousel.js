@@ -92,14 +92,16 @@ class Slideshow {
    }
    
    showImgs() {
+      const current = this.slideIndex - 1;
+      
       const dots = document.querySelectorAll( '.showBtn' );
       
       this.slides.forEach( e => { e.style.display = 'none'; });
       
-      dots.forEach( e => { e.classList.remove( 'w3-white' ) });
+      dots.forEach( e => { e.className = e.className.replace(' w3-white', '') });
       
-      this.slides[this.slideIndex - 1].style.display = 'block';
-      dots[this.slideIndex - 1].classList.add( 'w3-white' );
+      this.slides[current].style.display = 'block';
+      dots[current].className += ' w3-white';
    }
    
    controlHndlr() {
@@ -130,8 +132,10 @@ class Slideshow {
       this.showImgs(this.slideIndex);
       this.slideIndex++;
       
-      const _this = this;
-      this.timer = setTimeout( function() { _this.carousel(); }, 8000);
+      if ( ( this.timer === undefined ) || ( typeof this.timer === 'undefined' ) || ( this.timer === null ) ) {
+         const _this = this;
+         this.timer = setTimeout( function() { _this.carousel(); }, 8000);
+      }
    }
    
 }
