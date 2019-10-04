@@ -40,9 +40,9 @@ const CreateCard = ( obj ) => {
     const img  = document.createElement( 'img'  );
     const by   = document.createElement( 'span' );
     
-    card.classList.add( 'card' );
-    head.classList.add( 'headline' );
-    auth.classList.add( 'author' );
+    card.classList.add( 'card'          );
+    head.classList.add( 'headline'      );
+    auth.classList.add( 'author'        );
     cont.classList.add( 'img-container' );
     
     head.textContent = obj.headline;

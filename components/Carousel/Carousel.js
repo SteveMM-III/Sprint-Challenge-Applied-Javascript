@@ -88,20 +88,22 @@ class Slideshow {
    constructor() {
       this.timer      = null;
       this.slideIndex = 1;
+      
       this.slides     = document.querySelectorAll( '.slide' );
+      this.dots       = document.querySelectorAll( '.showBtn' );
    }
    
    showImgs() {
       const current = this.slideIndex - 1;
       
-      const dots = document.querySelectorAll( '.showBtn' );
+      
       
       this.slides.forEach( e => { e.style.display = 'none'; });
       
-      dots.forEach( e => { e.className = e.className.replace(' w3-white', '') });
+      this.dots.forEach( e => { e.className = e.className.replace(' w3-white', '') });
       
       this.slides[current].style.display = 'block';
-      dots[current].className += ' w3-white';
+      this.dots[current].className += ' w3-white';
    }
    
    controlHndlr() {
@@ -157,34 +159,12 @@ const addListeners = () => {
    right.addEventListener( 'click', function() { myShow.changeImg(1); } );
    
    dots.forEach( (e, i) => {
-      e.addEventListener( 'click', function() { myShow.setImg( ++i ) } );
+      e.addEventListener( 'click', function() { myShow.setImg( i - 1 ); } );
    });
+   console.log(dots);
 };
 
 addListeners();
 
 myShow.setImg(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
