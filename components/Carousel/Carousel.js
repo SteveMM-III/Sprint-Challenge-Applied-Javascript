@@ -96,10 +96,10 @@ class Slideshow {
       
       this.slides.forEach( e => { e.style.display = 'none'; });
       
-      dots.forEach( e => { e.className.replace( ' w3-white', '' ) });
+      dots.forEach( e => { e.classList.remove( 'w3-white' ) });
       
-      this.slides[this.slideIndex-1].style.display = 'block';
-      this.slides[this.slideIndex-1].className    += ' w3-white';
+      this.slides[this.slideIndex - 1].style.display = 'block';
+      dots[this.slideIndex - 1].classList.add( 'w3-white' );
    }
    
    controlHndlr() {
