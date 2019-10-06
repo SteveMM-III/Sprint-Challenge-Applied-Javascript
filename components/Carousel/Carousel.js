@@ -158,10 +158,10 @@ const addListeners = () => {
    left.addEventListener( 'click', function() { myShow.changeImg(-1); } );
    right.addEventListener( 'click', function() { myShow.changeImg(1); } );
    
-//   dots.forEach( (e, i) => {
-//      e.addEventListener( 'click', function() { myShow.setImg( i - 1 ); } );
-//   });
-//   console.log(dots);
+  dots.forEach( (e, i) => {
+     e.addEventListener( 'click', function() { myShow.setImg( i + 1); } );
+  });
+  console.log(dots);
 };
 
 addListeners();
